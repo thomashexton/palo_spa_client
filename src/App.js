@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
 import './App.css';
+import Navbar from './components/layout/Navbar';
+import NameForm from './components/user/NameForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import axios from 'axios';
+
+export const SERVER_URL = 'http://localhost:3000';
+
+class App extends Component {
+	componentDidMount() {
+		this.getUsers();
+	}
+
+	state = {
+		firstName: '',
+		lastName: '',
+		loading: false,
+		alert: null,
+		users: []
+	};
+
+	// current users
+	getUsers = async () => {
+		this.setState({ loading: true });
+
+		const response = await axios.get(`${SERVER_URL}/users`);
+		const { users } = response.data;
+		this.setState({ users: users });
+
+		this.setState({ loading: false });
+	};
+
+	render() {
+		return (
+			<Fragment>
+				<Navbar />
+				<div className='container'>
+					<NameForm />
+				</div>
+			</Fragment>
+		);
+	}
 }
 
 export default App;
