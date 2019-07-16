@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2d46b009de42977baca2f9f8ad8617fa",
+    "revision": "d707946dcd4f7cb9f0c93aaef34f39a1",
     "url": "/palo_spa_client/index.html"
   },
   {
-    "revision": "39822566f2f5d6f9cd3b",
+    "revision": "5ce3cbd8b40121b35479",
     "url": "/palo_spa_client/static/css/main.87b1f579.chunk.css"
   },
   {
-    "revision": "2c2b70e10f3015c58f26",
-    "url": "/palo_spa_client/static/js/2.d6943c9c.chunk.js"
+    "revision": "8fd7a92557f8934aeb79",
+    "url": "/palo_spa_client/static/js/2.33987883.chunk.js"
   },
   {
-    "revision": "39822566f2f5d6f9cd3b",
-    "url": "/palo_spa_client/static/js/main.63e04603.chunk.js"
+    "revision": "5ce3cbd8b40121b35479",
+    "url": "/palo_spa_client/static/js/main.143cbe76.chunk.js"
   },
   {
     "revision": "5868cebb4b1aae559f31",
