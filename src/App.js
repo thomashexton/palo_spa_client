@@ -6,7 +6,8 @@ import Users from './components/user/Users';
 
 import axios from 'axios';
 
-export const SERVER_URL = 'http://localhost:3000';
+// export const SERVER_URL = 'http://localhost:3000';
+export const SERVER_URL = 'https://palo-spa-server.herokuapp.com';
 
 class App extends Component {
 	componentDidMount() {
