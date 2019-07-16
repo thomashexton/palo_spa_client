@@ -26,6 +26,10 @@ function Features() {
 							DB checker, to see if name already exists. If yes, returns
 							consecutive zeroes.
 						</li>
+						<li className='list-group-item'>
+							Investigate and implement server side rendering, have to convert
+							CLI made 'create-react-app'.
+						</li>
 					</ul>
 				</div>
 			</div>

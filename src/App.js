@@ -21,7 +21,6 @@ class App extends Component {
 
 	state = {
 		loading: false,
-		// alert: null,
 		users: [],
 		firstName: '',
 		lastName: '',
@@ -45,7 +44,7 @@ class App extends Component {
 		this.setState({ [event.target.name]: event.target.value });
 	};
 
-	// handle submit request for form
+	// handle form submit
 	onSubmit = event => {
 		event.preventDefault();
 

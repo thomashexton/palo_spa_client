@@ -9,11 +9,13 @@ class Navbar extends Component {
 			collapsed: true
 		};
 	}
+
 	toggleNavbar() {
 		this.setState({
 			collapsed: !this.state.collapsed
 		});
 	}
+
 	render() {
 		const collapsed = this.state.collapsed;
 		const classOne = collapsed
@@ -26,7 +28,7 @@ class Navbar extends Component {
 		return (
 			<nav className='navbar navbar-expand-lg navbar-light bg-light'>
 				<Link className='navbar-brand' to='/'>
-					PALO IT Technical Test
+					PALO IT
 				</Link>
 				<button
 					onClick={this.toggleNavbar}
