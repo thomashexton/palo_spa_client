@@ -1,13 +1,18 @@
 import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/layout/Navbar';
+import Header from './components/layout/Header';
 import NameForm from './components/user/NameForm';
 import Users from './components/user/Users';
 
+import Features from './components/pages/Features';
+import About from './components/pages/About';
+
 import axios from 'axios';
 
-// export const SERVER_URL = 'http://localhost:3000';
-export const SERVER_URL = 'https://palo-spa-server.herokuapp.com';
+const SERVER_URL = 'http://localhost:3000';
+// const SERVER_URL = 'https://palo-spa-server.herokuapp.com';
 
 class App extends Component {
 	componentDidMount() {
@@ -18,12 +23,10 @@ class App extends Component {
 		loading: false,
 		// alert: null,
 		users: [],
-		user: {
-			firstName: '',
-			lastName: '',
-			userID: null,
-			consecutiveZeroes: null
-		}
+		firstName: '',
+		lastName: '',
+		userID: null,
+		consecutiveZeroes: null
 	};
 
 	// current users for page index load
@@ -58,6 +61,7 @@ class App extends Component {
 					userID: user_id,
 					consecutiveZeroes: consecutive_zeroes
 				});
+				this.getUsers();
 			})
 			.catch(error => console.log(error));
 
@@ -66,33 +70,42 @@ class App extends Component {
 
 	render() {
 		return (
-			<Fragment>
-				<Navbar />
-				<div className='container d-flex flex-row justify-content-center'>
-					<div className='col-12 col-md-6 pt-5'>
-						<div className='row'>
-							<div className='col text-center'>
-								<h4>
-									Enter your name to discover how many consecutive 0s it has,
-									once converted to binary.
-								</h4>
-							</div>
-						</div>
-						<div className='row'>
-							<div className='col'>
-								<NameForm
-									onChange={this.onChange}
-									onSubmit={this.onSubmit}
-									firstName={this.state.firstName}
-									lastName={this.state.lastName}
-								/>
-							</div>
-						</div>
-						{/* <UserZeroes user={this.state.user} /> */}
-						<Users users={this.state.users} loading={this.state.loading} />
+			<Router>
+				<Fragment>
+					<Navbar />
+					<div className='container d-flex flex-column justify-content-center py-5'>
+						<Switch>
+							<Route
+								exact
+								path='/'
+								render={props => {
+									return (
+										<Fragment>
+											<div className='col-12 col-md-6 m-auto'>
+												<Header />
+												<NameForm
+													onChange={this.onChange}
+													onSubmit={this.onSubmit}
+													firstName={this.state.firstName}
+													lastName={this.state.lastName}
+												/>
+											</div>
+											<Users
+												users={this.state.users}
+												loading={this.state.loading}
+											/>
+										</Fragment>
+									);
+								}}
+							/>
+
+							<Route exact path='/features' component={Features} />
+
+							<Route exact path='/about' component={About} />
+						</Switch>
 					</div>
-				</div>
-			</Fragment>
+				</Fragment>
+			</Router>
 		);
 	}
 }

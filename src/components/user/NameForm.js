@@ -1,36 +1,36 @@
-import React, { Fragment } from 'react';
-
-export const SERVER_URL = 'http://localhost:3000';
+import React from 'react';
 
 const NameForm = props => {
 	return (
-		<Fragment>
-			<form onSubmit={props.onSubmit} className='mt-5'>
-				<div className='form-group'>
-					<input
-						name='firstName'
-						type='text'
-						placeholder='Enter first name.'
-						value={props.firstName}
-						onChange={props.onChange}
-						required
-						className='form-control'
-					/>
-				</div>
-				<div className='form-group'>
-					<input
-						name='lastName'
-						type='text'
-						placeholder='Enter last name.'
-						value={props.lastName}
-						onChange={props.onChange}
-						required
-						className='form-control'
-					/>
-				</div>
-				<button className='btn btn-primary btn-block'>Submit</button>
-			</form>
-		</Fragment>
+		<div className='row mb-2'>
+			<div className='col'>
+				<form onSubmit={props.onSubmit}>
+					<div className='form-group'>
+						<input
+							name='firstName'
+							type='text'
+							placeholder='Enter first name.'
+							value={props.firstName}
+							onChange={props.onChange}
+							required
+							className='form-control'
+						/>
+					</div>
+					<div className='form-group'>
+						<input
+							name='lastName'
+							type='text'
+							placeholder='Enter last name.'
+							value={props.lastName}
+							onChange={props.onChange}
+							required
+							className='form-control'
+						/>
+					</div>
+					<button className='btn btn-primary btn-block'>Submit</button>
+				</form>
+			</div>
+		</div>
 	);
 };
 
