@@ -2,7 +2,7 @@ import React from 'react';
 
 const NameForm = props => {
 	return (
-		<div className='row mb-2'>
+		<div className='row no-gutters mb-2'>
 			<div className='col'>
 				<form onSubmit={props.onSubmit}>
 					<div className='form-group'>
@@ -27,7 +27,7 @@ const NameForm = props => {
 							className='form-control'
 						/>
 					</div>
-					<button className='btn btn-primary btn-block'>Submit</button>
+					<button className='btn btn-outline-success btn-block'>Submit</button>
 				</form>
 			</div>
 		</div>

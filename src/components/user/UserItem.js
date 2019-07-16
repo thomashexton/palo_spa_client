@@ -12,7 +12,7 @@ const UserItem = props => {
 			</div>
 			<div className='card-body'>
 				<p className='card-subtitle text-muted'>
-					Contains {consecutive_zeroes} consecutive zeroes.
+					When converted, this name has {consecutive_zeroes} consecutive zeroes.
 				</p>
 			</div>
 		</div>

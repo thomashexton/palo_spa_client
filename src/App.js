@@ -70,7 +70,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<Router>
+			<Router basename={process.env.PUBLIC_URL}>
 				<Fragment>
 					<Navbar />
 					<div className='container d-flex flex-column justify-content-center py-5'>
@@ -81,19 +81,21 @@ class App extends Component {
 								render={props => {
 									return (
 										<Fragment>
-											<div className='col-12 col-md-6 m-auto'>
-												<Header />
-												<NameForm
-													onChange={this.onChange}
-													onSubmit={this.onSubmit}
-													firstName={this.state.firstName}
-													lastName={this.state.lastName}
+											<div className='row no-gutters'>
+												<div className='col-12 col-md-5 m-auto no-gutters'>
+													<Header />
+													<NameForm
+														onChange={this.onChange}
+														onSubmit={this.onSubmit}
+														firstName={this.state.firstName}
+														lastName={this.state.lastName}
+													/>
+												</div>
+												<Users
+													users={this.state.users}
+													loading={this.state.loading}
 												/>
 											</div>
-											<Users
-												users={this.state.users}
-												loading={this.state.loading}
-											/>
 										</Fragment>
 									);
 								}}
