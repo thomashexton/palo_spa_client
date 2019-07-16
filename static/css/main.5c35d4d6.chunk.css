@@ -1,0 +1,2 @@
+.users-grid{display:grid;grid-gap:1rem}@media only screen and (min-width:576px){.users-grid{grid-template-columns:repeat(1,1fr)}}@media (min-width:768px){.users-grid{grid-template-columns:repeat(2,1fr)}}@media (min-width:992px){.users-grid{grid-template-columns:repeat(3,1fr)}}@media (min-width:1200px){.users-grid{grid-template-columns:repeat(4,1fr)}}
+/*# sourceMappingURL=main.5c35d4d6.chunk.css.map */
