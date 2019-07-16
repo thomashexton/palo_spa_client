@@ -3,7 +3,7 @@ import React from 'react';
 function Features() {
 	return (
 		<div className='row'>
-			<div className='col m-auto'>
+			<div className='col col-md-6 m-auto'>
 				<div class='card'>
 					<h4 class='card-header'>List of features to implement.</h4>
 					<ul class='list-group list-group-flush'>

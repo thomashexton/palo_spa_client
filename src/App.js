@@ -73,30 +73,28 @@ class App extends Component {
 			<Router basename={process.env.PUBLIC_URL}>
 				<Fragment>
 					<Navbar />
-					<div className='container d-flex flex-column justify-content-center py-5'>
+					<div className='container m-auto py-5'>
 						<Switch>
 							<Route
 								exact
 								path='/'
 								render={props => {
 									return (
-										<Fragment>
-											<div className='row no-gutters'>
-												<div className='col-12 col-md-5 m-auto no-gutters'>
-													<Header />
-													<NameForm
-														onChange={this.onChange}
-														onSubmit={this.onSubmit}
-														firstName={this.state.firstName}
-														lastName={this.state.lastName}
-													/>
-												</div>
-												<Users
-													users={this.state.users}
-													loading={this.state.loading}
+										<div className='row no-gutters d-flex flex-column justify-content-center'>
+											<div className='col-12 col-md-5 m-auto no-gutters'>
+												<Header />
+												<NameForm
+													onChange={this.onChange}
+													onSubmit={this.onSubmit}
+													firstName={this.state.firstName}
+													lastName={this.state.lastName}
 												/>
 											</div>
-										</Fragment>
+											<Users
+												users={this.state.users}
+												loading={this.state.loading}
+											/>
+										</div>
 									);
 								}}
 							/>
