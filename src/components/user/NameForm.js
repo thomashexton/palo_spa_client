@@ -5,7 +5,7 @@ export const SERVER_URL = 'http://localhost:3000';
 const NameForm = props => {
 	return (
 		<Fragment>
-			<form onSubmit={props.onSubmit}>
+			<form onSubmit={props.onSubmit} className='mt-5'>
 				<div className='form-group'>
 					<input
 						name='firstName'
@@ -28,7 +28,7 @@ const NameForm = props => {
 						className='form-control'
 					/>
 				</div>
-				<button className='btn btn-primary'>Submit</button>
+				<button className='btn btn-primary btn-block'>Submit</button>
 			</form>
 		</Fragment>
 	);

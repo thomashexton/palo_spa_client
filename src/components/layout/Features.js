@@ -12,6 +12,7 @@ function Features() {
 					DB checker, to see if name already exists. If yes, returns consecutive
 					zeroes.
 				</li>
+				<li>Correct/setup active link on Navbar.</li>
 			</ul>
 		</div>
 	);

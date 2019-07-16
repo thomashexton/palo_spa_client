@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import './App.css';
 import Navbar from './components/layout/Navbar';
 import NameForm from './components/user/NameForm';
+import Users from './components/user/Users';
 
 import axios from 'axios';
 
@@ -16,10 +17,12 @@ class App extends Component {
 		loading: false,
 		// alert: null,
 		users: [],
-		firstName: '',
-		lastName: '',
-		userId: null,
-		consecutiveZeroes: null
+		user: {
+			firstName: '',
+			lastName: '',
+			userID: null,
+			consecutiveZeroes: null
+		}
 	};
 
 	// current users for page index load
@@ -51,7 +54,7 @@ class App extends Component {
 				const { user_id, consecutive_zeroes } = response.data;
 				// console.log(response.data);
 				this.setState({
-					userId: user_id,
+					userID: user_id,
 					consecutiveZeroes: consecutive_zeroes
 				});
 			})
@@ -64,19 +67,28 @@ class App extends Component {
 		return (
 			<Fragment>
 				<Navbar />
-				<div className='container'>
-					<div className='row'>
-						<h2>
-							Want to know how many consecutive zeroes your name has when in
-							it's binary form?
-						</h2>
-						<NameForm
-							onChange={this.onChange}
-							onSubmit={this.onSubmit}
-							firstName={this.state.firstName}
-							lastName={this.state.lastName}
-							className='col-3'
-						/>
+				<div className='container d-flex flex-row justify-content-center'>
+					<div className='col-12 col-md-6 pt-5'>
+						<div className='row'>
+							<div className='col text-center'>
+								<h4>
+									Enter your name to discover how many consecutive 0s it has,
+									once converted to binary.
+								</h4>
+							</div>
+						</div>
+						<div className='row'>
+							<div className='col'>
+								<NameForm
+									onChange={this.onChange}
+									onSubmit={this.onSubmit}
+									firstName={this.state.firstName}
+									lastName={this.state.lastName}
+								/>
+							</div>
+						</div>
+						{/* <UserZeroes user={this.state.user} /> */}
+						<Users users={this.state.users} loading={this.state.loading} />
 					</div>
 				</div>
 			</Fragment>
