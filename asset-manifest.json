@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/palo_spa_client/static/css/main.36497136.chunk.css",
+    "main.js": "/palo_spa_client/static/js/main.6a64ba99.chunk.js",
+    "main.js.map": "/palo_spa_client/static/js/main.6a64ba99.chunk.js.map",
+    "runtime~main.js": "/palo_spa_client/static/js/runtime~main.c4b1cd3a.js",
+    "runtime~main.js.map": "/palo_spa_client/static/js/runtime~main.c4b1cd3a.js.map",
+    "static/js/2.d5b7ab4a.chunk.js": "/palo_spa_client/static/js/2.d5b7ab4a.chunk.js",
+    "static/js/2.d5b7ab4a.chunk.js.map": "/palo_spa_client/static/js/2.d5b7ab4a.chunk.js.map",
+    "index.html": "/palo_spa_client/index.html",
+    "precache-manifest.8b27569578db1bd9d9811afaa1113f9c.js": "/palo_spa_client/precache-manifest.8b27569578db1bd9d9811afaa1113f9c.js",
+    "service-worker.js": "/palo_spa_client/service-worker.js",
+    "static/css/main.36497136.chunk.css.map": "/palo_spa_client/static/css/main.36497136.chunk.css.map"
+  }
+}
