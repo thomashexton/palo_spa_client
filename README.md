@@ -1,7 +1,5 @@
 ## PALO IT Technical Test — Frontend Client — [Link to App](https://thomashexton.github.io/palo_spa_client)
 
----
-
 ### React
 
 This React client builds itself off the Ruby on Rails API which is hosted on a free Heroku dyno — spin up might take some time, but it will load!
