@@ -13,14 +13,16 @@ class App extends Component {
 	}
 
 	state = {
+		loading: false,
+		// alert: null,
+		users: [],
 		firstName: '',
 		lastName: '',
-		loading: false,
-		alert: null,
-		users: []
+		userId: null,
+		consecutiveZeroes: null
 	};
 
-	// current users
+	// current users for page index load
 	getUsers = async () => {
 		this.setState({ loading: true });
 
@@ -31,12 +33,51 @@ class App extends Component {
 		this.setState({ loading: false });
 	};
 
+	// handle onChange for SPA
+	onChange = event => {
+		this.setState({ [event.target.name]: event.target.value });
+	};
+
+	// handle submit request for form
+	onSubmit = event => {
+		event.preventDefault();
+
+		axios
+			.post(`${SERVER_URL}/users`, {
+				first_name: this.state.firstName,
+				last_name: this.state.lastName
+			})
+			.then(response => {
+				const { user_id, consecutive_zeroes } = response.data;
+				// console.log(response.data);
+				this.setState({
+					userId: user_id,
+					consecutiveZeroes: consecutive_zeroes
+				});
+			})
+			.catch(error => console.log(error));
+
+		this.setState({ firstName: '', lastName: '' });
+	};
+
 	render() {
 		return (
 			<Fragment>
 				<Navbar />
 				<div className='container'>
-					<NameForm />
+					<div className='row'>
+						<h2>
+							Want to know how many consecutive zeroes your name has when in
+							it's binary form?
+						</h2>
+						<NameForm
+							onChange={this.onChange}
+							onSubmit={this.onSubmit}
+							firstName={this.state.firstName}
+							lastName={this.state.lastName}
+							className='col-3'
+						/>
+					</div>
 				</div>
 			</Fragment>
 		);
