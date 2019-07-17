@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/palo_spa_client/static/css/main.87b1f579.chunk.css",
-    "main.js": "/palo_spa_client/static/js/main.c163dfd2.chunk.js",
-    "main.js.map": "/palo_spa_client/static/js/main.c163dfd2.chunk.js.map",
+    "main.js": "/palo_spa_client/static/js/main.8f1333a7.chunk.js",
+    "main.js.map": "/palo_spa_client/static/js/main.8f1333a7.chunk.js.map",
     "runtime~main.js": "/palo_spa_client/static/js/runtime~main.c4b1cd3a.js",
     "runtime~main.js.map": "/palo_spa_client/static/js/runtime~main.c4b1cd3a.js.map",
     "static/js/2.a3021c0e.chunk.js": "/palo_spa_client/static/js/2.a3021c0e.chunk.js",
     "static/js/2.a3021c0e.chunk.js.map": "/palo_spa_client/static/js/2.a3021c0e.chunk.js.map",
     "index.html": "/palo_spa_client/index.html",
-    "precache-manifest.a805ecb799edab604b65d4a7eda08a0c.js": "/palo_spa_client/precache-manifest.a805ecb799edab604b65d4a7eda08a0c.js",
+    "precache-manifest.34f0284232ccccc0342d15045b2ae138.js": "/palo_spa_client/precache-manifest.34f0284232ccccc0342d15045b2ae138.js",
     "service-worker.js": "/palo_spa_client/service-worker.js",
     "static/css/main.87b1f579.chunk.css.map": "/palo_spa_client/static/css/main.87b1f579.chunk.css.map"
   }
