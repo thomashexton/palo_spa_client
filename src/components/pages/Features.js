@@ -21,6 +21,9 @@ function Features() {
 							<strike>Correct/setup active link on Navbar.</strike> NavLink from
 							React-Router to the rescue!
 						</li>
+						<li class='list-group-item'>
+							<strike>Update page with only the newly added user.</strike>
+						</li>
 						<li class='list-group-item'>Apply PropTypes.</li>
 						<li class='list-group-item'>
 							DB checker, to see if name already exists. If yes, returns
