@@ -10,8 +10,11 @@ This React client builds itself off the Ruby on Rails API which is hosted on a f
 1. Download or clone this repo.
 1. Using your Terminal, navigate into the directory.
 1. Run the command `npm install` to install npm and the dependencies.
+1. Open `App.js`.
+   - Remove comment markers from line 14.
+   - Add comment markers to line 15.
 1. Run the dev server with `npm run start`, browser should open automatically or else go to https://localhost:3001. _Recommended browser is either Chrome or Brave._
 
 ---
 
-### Backend Server GitHub — https://github.com/thomashexton/palo_spa_server
+#### Backend Server GitHub — https://github.com/thomashexton/palo_spa_server

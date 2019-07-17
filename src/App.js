@@ -22,10 +22,9 @@ class App extends Component {
 	state = {
 		loading: false,
 		users: [],
-		firstName: '',
-		lastName: '',
 		userID: null,
-		consecutiveZeroes: null
+		firstName: '',
+		lastName: ''
 	};
 
 	// current users for page index load
@@ -34,7 +33,7 @@ class App extends Component {
 
 		const response = await axios.get(`${SERVER_URL}/users`);
 		const { users } = response.data;
-		this.setState({ users: users });
+		this.setState({ users });
 
 		this.setState({ loading: false });
 	};
@@ -48,10 +47,14 @@ class App extends Component {
 	onSubmit = event => {
 		event.preventDefault();
 
+		// removing any spaces at the end of the strings
+		const first_name = this.state.firstName.trim();
+		const last_name = this.state.lastName.trim();
+
 		axios
 			.post(`${SERVER_URL}/users`, {
-				first_name: this.state.firstName,
-				last_name: this.state.lastName
+				first_name,
+				last_name
 			})
 			.then(response => {
 				const { user_id, consecutive_zeroes } = response.data;
