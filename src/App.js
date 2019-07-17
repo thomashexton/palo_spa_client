@@ -11,8 +11,8 @@ import About from './components/pages/About';
 
 import axios from 'axios';
 
-// const SERVER_URL = 'http://localhost:3000';
-const SERVER_URL = 'https://palo-spa-server.herokuapp.com';
+const SERVER_URL = 'http://localhost:3000';
+// const SERVER_URL = 'https://palo-spa-server.herokuapp.com';
 
 class App extends Component {
 	componentDidMount() {
@@ -22,7 +22,6 @@ class App extends Component {
 	state = {
 		loading: false,
 		users: [],
-		userID: null,
 		firstName: '',
 		lastName: ''
 	};
@@ -57,13 +56,12 @@ class App extends Component {
 				last_name
 			})
 			.then(response => {
-				const { user_id, consecutive_zeroes } = response.data;
-				// console.log(response.data);
-				this.setState({
-					userID: user_id,
-					consecutiveZeroes: consecutive_zeroes
+				console.log(response.data);
+				this.setState(prevState => {
+					return {
+						users: [response.data, ...prevState.users]
+					};
 				});
-				this.getUsers();
 			})
 			.catch(error => console.log(error));
 
