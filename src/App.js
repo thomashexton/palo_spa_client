@@ -11,20 +11,20 @@ import About from './components/pages/About';
 
 import axios from 'axios';
 
-// const SERVER_URL = 'http://localhost:3000';
+// let SERVER_URL = "http://localhost:3000";
 const SERVER_URL = 'https://palo-spa-server.herokuapp.com';
 
 class App extends Component {
-	componentDidMount() {
-		this.getUsers();
-	}
-
 	state = {
 		loading: false,
 		users: [],
 		firstName: '',
-		lastName: ''
+		lastName: '',
 	};
+
+	componentDidMount() {
+		this.getUsers();
+	}
 
 	// current users for page index load
 	getUsers = async () => {
@@ -34,9 +34,7 @@ class App extends Component {
 		console.log(response.data);
 
 		const { users } = response.data;
-		this.setState({ users });
-
-		this.setState({ loading: false });
+		this.setState({ users, loading: false });
 	};
 
 	// handle onChange for SPA
@@ -45,7 +43,7 @@ class App extends Component {
 	};
 
 	// handle form submit
-	onSubmit = event => {
+	_handleSubmit = event => {
 		event.preventDefault();
 
 		// removing any spaces at the end of the strings
@@ -55,16 +53,24 @@ class App extends Component {
 		axios
 			.post(`${SERVER_URL}/users`, {
 				first_name,
-				last_name
+				last_name,
 			})
 			.then(response => {
-				console.log(response.data);
 				this.setState({
-					users: [response.data, ...this.state.users]
+					users: [response.data.user, ...this.state.users],
 				});
 			})
 			.catch(error => console.log(error));
 		this.setState({ firstName: '', lastName: '' });
+	};
+
+	// handle deletion of user
+	_handleDelete = async event => {
+		const id = event.target.id;
+
+		const response = await axios.delete(`${SERVER_URL}/users/${id}`);
+		const { users } = response.data;
+		this.setState({ users });
 	};
 
 	render() {
@@ -72,19 +78,19 @@ class App extends Component {
 			<Router basename={process.env.PUBLIC_URL}>
 				<Fragment>
 					<Navbar />
-					<div className='container m-auto py-5'>
+					<div className="container m-auto py-5">
 						<Switch>
 							<Route
 								exact
-								path='/'
+								path="/"
 								render={props => {
 									return (
-										<div className='row no-gutters d-flex flex-column justify-content-center'>
-											<div className='col-12 col-md-5 m-auto no-gutters'>
+										<div className="row no-gutters d-flex flex-column justify-content-center">
+											<div className="col-12 col-md-5 m-auto no-gutters">
 												<Header />
 												<NameForm
 													onChange={this.onChange}
-													onSubmit={this.onSubmit}
+													onSubmit={this._handleSubmit}
 													firstName={this.state.firstName}
 													lastName={this.state.lastName}
 												/>
@@ -92,15 +98,16 @@ class App extends Component {
 											<Users
 												users={this.state.users}
 												loading={this.state.loading}
+												_handleDelete={this._handleDelete}
 											/>
 										</div>
 									);
 								}}
 							/>
 
-							<Route exact path='/features' component={Features} />
+							<Route exact path="/features" component={Features} />
 
-							<Route exact path='/about' component={About} />
+							<Route exact path="/about" component={About} />
 						</Switch>
 					</div>
 				</Fragment>

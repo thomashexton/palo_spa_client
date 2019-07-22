@@ -11,9 +11,15 @@ const Users = props => {
 		return <Spinner />;
 	} else {
 		return (
-			<div className='mt-5 users-grid'>
+			<div className="mt-5 users-grid">
 				{users.map(user => {
-					return <UserItem key={user.id} user={user} />;
+					return (
+						<UserItem
+							key={user.id}
+							user={user}
+							_handleDelete={props._handleDelete}
+						/>
+					);
 				})}
 			</div>
 		);

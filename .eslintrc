@@ -1,0 +1,27 @@
+{
+	"extends": ["react-app", "prettier"],
+	"plugins": ["prettier"],
+	"rules": {
+		"indent": ["error", "tab"],
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"react/jsx-one-expression-per-line": "off",
+		"no-tabs": "off",
+		"quotes": [
+			"error",
+			"single",
+			{
+				"allowTemplateLiterals": true
+			}
+		],
+		"prettier/prettier": [
+			"error",
+			{
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 80,
+				"useTabs": true
+			}
+		]
+	}
+}
