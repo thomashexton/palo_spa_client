@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/palo_spa_client/static/css/main.87b1f579.chunk.css",
-    "main.js": "/palo_spa_client/static/js/main.d9328d1d.chunk.js",
-    "main.js.map": "/palo_spa_client/static/js/main.d9328d1d.chunk.js.map",
+    "main.css": "/palo_spa_client/static/css/main.d6e2c1d0.chunk.css",
+    "main.js": "/palo_spa_client/static/js/main.e87e1182.chunk.js",
+    "main.js.map": "/palo_spa_client/static/js/main.e87e1182.chunk.js.map",
     "runtime~main.js": "/palo_spa_client/static/js/runtime~main.c4b1cd3a.js",
     "runtime~main.js.map": "/palo_spa_client/static/js/runtime~main.c4b1cd3a.js.map",
-    "static/js/2.a3021c0e.chunk.js": "/palo_spa_client/static/js/2.a3021c0e.chunk.js",
-    "static/js/2.a3021c0e.chunk.js.map": "/palo_spa_client/static/js/2.a3021c0e.chunk.js.map",
+    "static/js/2.dcea8a92.chunk.js": "/palo_spa_client/static/js/2.dcea8a92.chunk.js",
+    "static/js/2.dcea8a92.chunk.js.map": "/palo_spa_client/static/js/2.dcea8a92.chunk.js.map",
     "index.html": "/palo_spa_client/index.html",
-    "precache-manifest.4ff9eb6a997465e8882d3458729acfa5.js": "/palo_spa_client/precache-manifest.4ff9eb6a997465e8882d3458729acfa5.js",
+    "precache-manifest.b3e8553a366380d5cb5103331ace427e.js": "/palo_spa_client/precache-manifest.b3e8553a366380d5cb5103331ace427e.js",
     "service-worker.js": "/palo_spa_client/service-worker.js",
-    "static/css/main.87b1f579.chunk.css.map": "/palo_spa_client/static/css/main.87b1f579.chunk.css.map"
+    "static/css/main.d6e2c1d0.chunk.css.map": "/palo_spa_client/static/css/main.d6e2c1d0.chunk.css.map"
   }
 }
