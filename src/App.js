@@ -66,12 +66,14 @@ class App extends Component {
 
 	// handle deletion of user
 	_handleDelete = async event => {
-		this.setState({ loading: true });
-		const id = event.target.id;
+		// id must be converted to INT. Not sure why it is a STR?
+		const id = Number(event.target.id);
 
-		const response = await axios.delete(`${SERVER_URL}/users/${id}`);
-		const { users } = response.data;
-		this.setState({ users: users, loading: false });
+		await axios.delete(`${SERVER_URL}/users/${id}`);
+
+		const filteredUsers = this.state.users.filter(user => user.id !== id);
+
+		this.setState({ users: filteredUsers });
 	};
 
 	render() {
