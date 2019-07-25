@@ -66,11 +66,12 @@ class App extends Component {
 
 	// handle deletion of user
 	_handleDelete = async event => {
+		this.setState({ loading: true });
 		const id = event.target.id;
 
 		const response = await axios.delete(`${SERVER_URL}/users/${id}`);
 		const { users } = response.data;
-		this.setState({ users });
+		this.setState({ users: users, loading: false });
 	};
 
 	render() {

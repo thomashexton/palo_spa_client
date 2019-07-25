@@ -19,12 +19,11 @@ const UserItem = props => {
 				{first_name} {last_name}
 				<button
 					type="button"
-					class="close"
+					className="close"
 					onClick={props._handleDelete}
-					id={id}
 					style={{ marginTop: '-1.5%' }}
 				>
-					<span>&times;</span>
+					<span id={id}>&times;</span>
 				</button>
 			</div>
 			<div className="card-body">
