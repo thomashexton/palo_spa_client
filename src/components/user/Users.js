@@ -12,16 +12,21 @@ const Users = props => {
 		_handleDelete,
 	} = props;
 
+	// filter the usersWithMostConsecutiveZeroes array to see if user.id exists in it
+	function userExistsInMostConsecutiveZeroes(userId) {
+		const userExists = usersWithMostConsecutiveZeroes.filter(
+			user => user.id === userId
+		);
+		return userExists.length > 0 ? true : false;
+	}
+
 	if (loading) {
 		return <Spinner />;
 	} else {
 		return (
 			<div className="mt-5 users-grid">
 				{users.map(user => {
-					if (
-						user.id ===
-						usersWithMostConsecutiveZeroes.filter(u => u.id === user.id)
-					) {
+					if (userExistsInMostConsecutiveZeroes(user.id)) {
 						return (
 							<UserItem
 								key={user.id}

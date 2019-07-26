@@ -79,11 +79,9 @@ class App extends Component {
 					users: [response.data.user, ...this.state.users],
 				});
 			})
+			// run new users through to get new highest count
 			.then(response => {
-				this.highestZeroes(
-					this.state.users,
-					this.state.userIdWithMostConsecutiveZeroes
-				);
+				this.highestZeroes(this.state.users);
 			})
 			.catch(error => console.log(error));
 		this.setState({ firstName: '', lastName: '' });
@@ -97,10 +95,7 @@ class App extends Component {
 		await axios.delete(`${SERVER_URL}/users/${id}`);
 
 		const filteredUsers = this.state.users.filter(user => user.id !== id);
-		this.highestZeroes(
-			filteredUsers,
-			this.state.userIdWithMostConsecutiveZeroes
-		);
+		this.highestZeroes(filteredUsers);
 
 		this.setState({ users: filteredUsers });
 	};
