@@ -11,10 +11,16 @@ const UserItem = props => {
 			binary_conversion,
 			consecutive_zeroes,
 		},
+		userWithMostConsecutiveZeroes,
 	} = props;
 
 	return (
-		<div className="card text-center">
+		<div
+			className={
+				'card text-center' +
+				(userWithMostConsecutiveZeroes ? ' border-success' : '')
+			}
+		>
 			<div className="card-header">
 				{first_name} {last_name}
 				<button

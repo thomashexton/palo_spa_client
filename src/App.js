@@ -18,10 +18,12 @@ class App extends Component {
 	state = {
 		loading: false,
 		users: [],
+		usersWithMostConsecutiveZeroes: [],
 		firstName: '',
 		lastName: '',
 	};
 
+	// only used for initial population of users
 	componentDidMount() {
 		this.getUsers();
 	}
@@ -31,10 +33,27 @@ class App extends Component {
 		this.setState({ loading: true });
 
 		const response = await axios.get(`${SERVER_URL}/users`);
-		console.log(response.data);
-
 		const { users } = response.data;
+		this.highestZeroes(users);
+
 		this.setState({ users, loading: false });
+	};
+
+	// function to check which users have the most consecutive zeroes
+	highestZeroes = users => {
+		// find highest number of consecutive_zeroes across users
+		const maxConsecutiveZeroes = Math.max(
+			...users.map(user => user.consecutive_zeroes)
+		);
+
+		// filter users that don't meet the found number
+		let usersWithMostConsecutiveZeroes = users.filter(
+			user => user.consecutive_zeroes === maxConsecutiveZeroes
+		);
+
+		this.setState({
+			usersWithMostConsecutiveZeroes,
+		});
 	};
 
 	// handle onChange for SPA
@@ -60,6 +79,12 @@ class App extends Component {
 					users: [response.data.user, ...this.state.users],
 				});
 			})
+			.then(response => {
+				this.highestZeroes(
+					this.state.users,
+					this.state.userIdWithMostConsecutiveZeroes
+				);
+			})
 			.catch(error => console.log(error));
 		this.setState({ firstName: '', lastName: '' });
 	};
@@ -72,6 +97,10 @@ class App extends Component {
 		await axios.delete(`${SERVER_URL}/users/${id}`);
 
 		const filteredUsers = this.state.users.filter(user => user.id !== id);
+		this.highestZeroes(
+			filteredUsers,
+			this.state.userIdWithMostConsecutiveZeroes
+		);
 
 		this.setState({ users: filteredUsers });
 	};
@@ -100,6 +129,9 @@ class App extends Component {
 											</div>
 											<Users
 												users={this.state.users}
+												usersWithMostConsecutiveZeroes={
+													this.state.usersWithMostConsecutiveZeroes
+												}
 												loading={this.state.loading}
 												_handleDelete={this._handleDelete}
 											/>
